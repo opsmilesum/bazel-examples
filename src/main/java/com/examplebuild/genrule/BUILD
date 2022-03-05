@@ -1,6 +1,6 @@
 genrule(
-    name = "test_genrule",
+    name = "genrule",
     srcs = ["input.txt"],
     outs = ["output.txt"],
-    cmd_bash = "cat $< >> $@ && echo \"Append output\" >> $@"
+    cmd_bash = "cat $< >> $@ && echo \"\nAppend output\" >> $@"
 )
