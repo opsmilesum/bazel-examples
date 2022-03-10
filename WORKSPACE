@@ -17,7 +17,8 @@ maven_install(
     artifacts = [
         "org.apache.commons:commons-math3:3.2",
         "com.google.guava:guava:jar:sources:28.2-jre",
-        "org.slf4j:slf4j-api:jar:sources:1.7.30"
+        "org.slf4j:slf4j-api:jar:sources:1.7.30",
+        "junit:junit:4.8.1"
     ],
     maven_install_json = "//:maven_install.json",
     repositories = [
