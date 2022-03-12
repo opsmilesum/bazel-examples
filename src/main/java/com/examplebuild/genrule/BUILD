@@ -1,4 +1,4 @@
-load(":defs.bzl", "compare_files_test", "remove_duplicates")
+load(":defs.bzl", "compare_files_test", "remove_duplicates", "convert_csv_or_json")
 
 # $@ is an alias for single-file output, instead of $(OUTS)
 # $< is an alias for single-file input, instead of $(SRCS)
@@ -48,3 +48,28 @@ compare_files_test(
     actual = ":csv_sanitized_with_macro",
     expected = "//src/main/java/com/examplebuild/genrule/test:csv_expected"
 )
+
+# Json-------------------------------------------------------------
+convert_csv_or_json(
+    name = "convert_csv",
+    input = ":csv_sanitized_with_macro",
+    output = "converted-data.json",
+)
+
+compare_files_test(
+    name = "csvjson_convertion_test",
+    actual = ":convert_csv",
+    expected = "//src/main/java/com/examplebuild/genrule/test:json_exepected"
+)
+
+#convert_csv_or_json(
+#    name = "convert_json",
+#    input = ":convert_csv",
+#    output = "converter-data-back.csv"
+#)
+#
+#compare_files_test(
+#    name = "jsoncsv_convertion_test",
+#    actual = "convert_json",
+#    expected = "//src/main/java/com/examplebuild/genrule/test:csv_expected"
+#)
