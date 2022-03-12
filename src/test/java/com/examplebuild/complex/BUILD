@@ -8,6 +8,6 @@ filegroup(
 java_test(
     name = "test",
     srcs = ["files"],
-    test_class = "src.test.java.com.examplebuild.complex.ComplexGeneratorTest",
+    test_class = "com.examplebuild.complex.ComplexGeneratorTest",
     deps = ["@maven//:junit_junit"]
 )

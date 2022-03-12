@@ -1,4 +1,5 @@
-package src.test.java.com.examplebuild.complex;
+package com.examplebuild.complex;
+
 
 public class ComplexGeneratorTest {
 
