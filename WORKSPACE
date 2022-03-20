@@ -1,4 +1,6 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("//rules:repo_codegen.bzl", "repo_codegen")
+
 RULES_JVM_EXTERNAL_TAG = "3.3"
 RULES_JVM_EXTERNAL_SHA= "d85951a92c0908c80bd8551002d66cb23c3434409c814179c0ff026b53544dab"
 
@@ -7,6 +9,16 @@ http_archive(
     sha256 = RULES_JVM_EXTERNAL_SHA,
     strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
+)
+
+# bazel query @repo_gen//...
+repo_codegen(
+    name = "repo_gen",
+    keys = [
+        "foo",
+        "bar",
+        "baz",
+    ]
 )
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")

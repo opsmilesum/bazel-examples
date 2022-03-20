@@ -11,3 +11,4 @@ java_test(
     test_class = "com.examplebuild.complex.ComplexGeneratorTest",
     deps = ["@maven//:junit_junit"]
 )
+
